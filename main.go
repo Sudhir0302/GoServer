@@ -2,16 +2,13 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
+
+	"github.com/Sudhir0302/GoServer/routes"
 )
 
 func main() {
-	fmt.Println("serverrr")
-	http.HandleFunc("/greet", greet)
-	http.ListenAndServe(":8081", nil)
-}
-
-func greet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type","Application/json")
-	w.Write([]byte("hello from golang"))
+	fmt.Println("go serverrr startss")
+	log.Fatal(http.ListenAndServe(":8080",routes.UserRoute()))
 }
