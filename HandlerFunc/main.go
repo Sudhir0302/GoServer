@@ -20,13 +20,14 @@ func main() {
 	//creating a new ServeMux router
 	// mux := http.NewServeMux()
 
-	http.HandleFunc("/call", call)
+	http.HandleFunc("/call", call) //registers in the Servemux's map(a place where all endpoints are mapped and stored inside the mux struct)
+
 	// http.ListenAndServe(":8080", &custom{})
 	http.ListenAndServe(":8080", nil)
 
 }
 
-//since interfaces can only implemented by having struct,so here there is dummy custom struct..
+// Interfaces in Go are implemented by any type — struct, function type, or even custom type aliases — as long as the type defines all the methods in the interface. No explicit declaration is needed.
 // type custom struct {
 // }
 
