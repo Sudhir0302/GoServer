@@ -41,12 +41,20 @@ func (repo *TodoController) Add(todo string) string {
 func (repo *TodoController) View() {
 	row, _ := repo.DB.Query(`select * from todo`)
 
-	// var
-
 	for row.Next() {
 		// fmt.Println(res.Next())
 		var t models.Todo
 		row.Scan(&t.ID, &t.Task, &t.Status)
 		fmt.Println(t)
 	}
+}
+
+func (repo *TodoController) Delete(todo string) string {
+	stmt, _ := repo.DB.Prepare("DELETE FROM todo where todo=?")
+	res, _ := stmt.Exec(todo)
+	if res != nil {
+		fmt.Println("deleted")
+		return "success"
+	}
+	return "failed"
 }

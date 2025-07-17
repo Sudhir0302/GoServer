@@ -9,7 +9,7 @@ import (
 )
 
 func Conn() *sql.DB {
-	db, err := sql.Open("mysql", "root:admin@tcp(127.0.0.1:3306)/todo_cli")
+	db, err := sql.Open("mysql", "root:sudhir@tcp(127.0.0.1:3306)/todo_cli")
 
 	if err != nil {
 		log.Fatal(err)
