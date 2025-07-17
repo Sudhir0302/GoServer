@@ -27,7 +27,8 @@ func main() {
 
 	gin.SetMode(gin.ReleaseMode)
 
-	router := gin.Default()
+	// router := gin.Default()  //adds default middlewares like logger.
+	router := gin.New()
 
 	//global middleware
 	router.Use(log())
@@ -39,7 +40,8 @@ func main() {
 	authGrp.Use(auth())
 	{
 		authGrp.GET("/user", func(c *gin.Context) {
-			c.JSON(200, gin.H{"msg": "success"})
+			// c.JSON(200, gin.H{"msg": "success"})
+			c.JSON(200, map[string]string{"msg": "success"})
 		})
 		router.Run(":8080")
 	}
