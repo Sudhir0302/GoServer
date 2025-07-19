@@ -39,7 +39,13 @@ func main() {
 			res := cont.Add(todo)
 			fmt.Println(res)
 		case 3:
-			fmt.Println("update")
+			// fmt.Println("enter a task to update: ")
+			fmt.Print("enter task name: ")
+			task, _ := reader.ReadString('\n')
+			task = strings.TrimSpace(task)
+			res := cont.Update(task)
+			fmt.Println(res)
+			// fmt.Println("update")
 		case 4:
 			fmt.Print("enter a task to delete: ")
 			todo, _ := reader.ReadString('\n')

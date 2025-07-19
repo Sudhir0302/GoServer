@@ -1,0 +1,12 @@
+| Term                        | Type                     | Purpose                                                |
+| --------------------------- | ------------------------ | ------------------------------------------------------ |
+| `collection`                | `*mongo.Collection`      | Interface to interact with one collection.             |
+| `clientoption`              | `*options.ClientOptions` | Configures how the client connects (URI etc.).         |
+| `mongo.Connect(...)`        | `*mongo.Client`          | Connects to MongoDB.                                   |
+| `context.TODO()`            | `context.Context`        | Placeholder context (used for operation scoping).      |
+| `primitive.ObjectIDFromHex` | `primitive.ObjectID`     | Converts string to MongoDB ObjectID.                   |
+| `bson.M`                    | `map[string]interface{}` | BSON doc (unordered, good for simple filters/updates). |
+| `bson.D`                    | `[]bson.E`               | BSON doc (ordered, used in special cases).             |
+| `[]primitive.M`             | Slice of BSON documents  | Stores multiple documents returned from DB.            |
+| `cursor.Next(ctx)`          | Loop over query results  | Reads documents one at a time.                         |
+| `cursor.Decode(&movie)`     | Decodes BSON to Go value | Makes MongoDB data usable in Go.                       |

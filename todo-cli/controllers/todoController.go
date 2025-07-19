@@ -58,3 +58,16 @@ func (repo *TodoController) Delete(todo string) string {
 	}
 	return "failed"
 }
+
+func (repo *TodoController) Update(task string) string {
+	check, _ := repo.DB.Exec("select todo from todo where todo=?", task)
+	if check == nil {
+		return "provide crct data"
+	}
+	stmt, _ := repo.DB.Prepare("Update todo set status=? where todo=?")
+	res, _ := stmt.Exec(true, task)
+	if res != nil {
+		return "succes"
+	}
+	return "failed"
+}
